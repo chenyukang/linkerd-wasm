@@ -1,15 +1,16 @@
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
+server
+vendor
+web-port/web-port
+image-api/image-api
+*.Identifier
+*.wasm
 *.so
-*.dylib
-
-# Test binary, built with `go test -c`
-*.test
-
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
-
-# Dependency directories (remove the comment below to include it)
-# vendor/
+*.o
+wasmedge-tensorflow-lite
+wasmedgec-tensorflow
+nohup.out
+target
+image-classification/install_wasmedge.sh
+image-classification/install_wasmedge_image.sh
+image-classification/install_wasmedge_tensorflow.sh
+image-classification/install_wasmedge_tensorflow_deps.sh
