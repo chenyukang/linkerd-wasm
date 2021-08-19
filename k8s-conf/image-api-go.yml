@@ -4,7 +4,7 @@ metadata:
   name: image-api-go
   namespace: default
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       bb: image-api-go

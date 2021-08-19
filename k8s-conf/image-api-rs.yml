@@ -1,35 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-port
+  name: image-api-rs
   namespace: default
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      bb: web-port
+      bb: image-api-rs
   template:
     metadata:
       labels:
-        bb: web-port
+        bb: image-api-rs
     spec:
       containers:
-      - name: web-port
-        image: web-port
+      - name: image-api-rs
+        image: image-api-rs:latest
         imagePullPolicy: Never
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-port-entrypoint
+  name: image-api-rs-entrypoint
   namespace: default
 spec:
   type: LoadBalancer
-  externalIPs:
-    - 10.96.28.227
   selector:
-    bb: web-port
+    bb: image-api-rs
   ports:
-  - port: 8085
-    targetPort: 8085
+  - port: 8088
+    targetPort: 8088
 
