@@ -1,1 +1,1 @@
-docker build --tag web-api .
+docker build --tag web-port .

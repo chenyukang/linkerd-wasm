@@ -55,7 +55,7 @@ function runWasm(e) {
     reader.onload = function (e) {
         setLoading(true);
         var req = new XMLHttpRequest();
-        req.open("POST", '/api/hello', true);
+        req.open("POST", '/image/api', true);
         req.setRequestHeader('api', getApi());
         req.onload = function () {
             setLoading(false);

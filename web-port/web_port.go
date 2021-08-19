@@ -41,9 +41,9 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 	api := r.Header.Get("api")
 	uri := ""
 	if api == "go" {
-		uri = "http://127.0.0.1:8086/api"
+		uri = "http://image-api-go-entrypoint:8086/api"
 	} else {
-		uri = "http://127.0.0.1:8087/api"
+		uri = "http://image-api-rs-entrypoint:8088/api/image"
 	}
 	httpClientSend(body, uri, w)
 }
@@ -85,7 +85,7 @@ func loadFile(path string) ([]byte, error) {
 
 func main() {
 	http.HandleFunc("/static/", staticHandler)
-	http.HandleFunc("/api/hello", imageHandler)
+	http.HandleFunc("/api", imageHandler)
 	println("listen to 8085 ...")
 	log.Fatal(http.ListenAndServe(":8085", nil))
 }

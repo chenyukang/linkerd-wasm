@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: image-api-go
+  name: web-port
   namespace: default
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
-      bb: image-api-go
+      bb: web-port
   template:
     metadata:
       labels:
-        bb: image-api-go
+        bb: web-port
     spec:
       containers:
-      - name: image-api-go
-        image: image-api-go
+      - name: web-port
+        image: web-port
         imagePullPolicy: Never
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: image-api-go-entrypoint
+  name: web-port-entrypoint
   namespace: default
 spec:
   type: LoadBalancer
   selector:
-    bb: image-api-go
+    bb: web-port
   ports:
-  - port: 8086
-    targetPort: 8086
+  - port: 8085
+    targetPort: 8085
 
