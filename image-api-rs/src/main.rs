@@ -60,7 +60,7 @@ fn main() {
     let port_key = "FUNCTIONS_CUSTOMHANDLER_PORT";
     let _port: u16 = match env::var(port_key) {
         Ok(val) => val.parse().expect("Custom Handler port is not a number!"),
-        Err(_) => 9004,
+        Err(_) => 8088,
     };
 
     run_server(_port);

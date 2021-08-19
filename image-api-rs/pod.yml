@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: image-api-rs
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: image-api-rs
+  template:
+    metadata:
+      labels:
+        bb: image-api-rs
+    spec:
+      containers:
+      - name: image-api-rs
+        image: image-api-rs
+        imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: image-api-rs-entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    bb: image-api-rs
+  ports:
+  - port: 8088
+    targetPort: 8088
+
