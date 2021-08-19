@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: image-api-rs
-        image: image-api-rs
+        image: image-api-rs:latest
         imagePullPolicy: Never
 ---
 apiVersion: v1
@@ -24,7 +24,7 @@ metadata:
   name: image-api-rs-entrypoint
   namespace: default
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     bb: image-api-rs
   ports:

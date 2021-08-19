@@ -68,16 +68,3 @@ func main() {
 	println("listen to 8086 ...")
 	log.Fatal(http.ListenAndServe(":8086", nil))
 }
-
-/* func main() {
-	s := daprd.NewService(":9003")
-
-	if err := s.AddServiceInvocationHandler("/api/image", imageHandlerWASI); err != nil {
-		log.Fatalf("error adding invocation handler: %v", err)
-	}
-
-	if err := s.Start(); err != nil && err != http.ErrServerClosed {
-		log.Fatalf("error listenning: %v", err)
-	}
-}
-*/

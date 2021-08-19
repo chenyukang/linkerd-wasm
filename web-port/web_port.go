@@ -43,7 +43,7 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 	if api == "go" {
 		uri = "http://image-api-go-entrypoint:8086/api"
 	} else {
-		uri = "http://image-api-rs-entrypoint:8088/api/image"
+		uri = "http://image-api-rs-entrypoint:8088/api"
 	}
 	httpClientSend(body, uri, w)
 }

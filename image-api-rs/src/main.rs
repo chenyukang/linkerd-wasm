@@ -30,7 +30,6 @@ pub async fn run_server(port: u16) {
     // dir already require
     let image = warp::post()
         .and(warp::path("api"))
-        .and(warp::path("image"))
         .and(warp::body::bytes())
         .map(|bytes: bytes::Bytes| {
             //println!("bytes = {:?}", bytes);
@@ -50,12 +49,6 @@ pub async fn run_server(port: u16) {
     warp::serve(routes).run((Ipv4Addr::UNSPECIFIED, port)).await
 }
 
-/* async fn handle_rejection(
-    err: warp::Rejection,
-) -> Result<impl warp::Reply, std::convert::Infallible> {
-    Ok(warp::reply::json(&format!("{:?}", err)))
-}
- */
 fn main() {
     let port_key = "FUNCTIONS_CUSTOMHANDLER_PORT";
     let _port: u16 = match env::var(port_key) {

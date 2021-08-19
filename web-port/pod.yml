@@ -25,6 +25,8 @@ metadata:
   namespace: default
 spec:
   type: LoadBalancer
+  externalIPs:
+    - 10.96.28.227
   selector:
     bb: web-port
   ports:
