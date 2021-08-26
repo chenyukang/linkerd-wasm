@@ -35,4 +35,5 @@ cp libtensorflowlite_c.so ../image-api-rs/lib
 cp wasmedge-tensorflow-lite ../image-api-go/lib
 cp libtensorflowlite_c.so ../image-api-go/lib
 
+curl https://raw.githubusercontent.com/second-state/rustwasmc/master/installer/init.sh -sSf | sh
 
